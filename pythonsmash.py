@@ -5,6 +5,8 @@ For usage, run "./pythonsmash.py --help".
 """
 
 import argparse
+from lexer import lex
+
 
 def get_arguments():
     """Set up the argument parser and return an object storing the
@@ -21,12 +23,17 @@ def get_arguments():
     parser.add_argument("file_name", metavar="filename")
     return parser.parse_args()
 
+
 def compile_code(source):
     """Compile the provided source code into assembly.
     source - The C source code to compile.
     return - The asm output
     """
+    tokens = lex(source)
+    for token in tokens:
+        print(token)
     return source
+
 
 def main():
     """Load the input files and dispatch to the compile function for the main
@@ -45,6 +52,7 @@ def main():
     else:
         compile_code(ps_file.read())
         ps_file.close()
+
 
 if __name__ == "__main__":
     main()
