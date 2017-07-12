@@ -34,5 +34,7 @@ def lex(characters):
     """The actual function taking characters as input and
      calling lexer function to generate array of tokens.
      """
-    print(characters)
+    # for c in characters:
+    #     print(c)
+    # print(characters)
     return lexer(characters, token_exprs)

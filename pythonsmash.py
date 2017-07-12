@@ -32,7 +32,7 @@ def compile_code(source):
     tokens = lex(source)
     for token in tokens:
         print(token)
-    return source
+    return tokens
 
 
 def main():
